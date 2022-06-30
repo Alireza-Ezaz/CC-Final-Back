@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-weather
+spec:
+  selector:
+    app: flask-weather
+  ports:
+    - protocol: TCP
+      targetPort: 8080
+      port: 80

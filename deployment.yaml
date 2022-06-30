@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flask-weather
+  name: flask-weather
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flask-weather
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: flask-weather
+    spec:
+      containers:
+      - image: salireza78/flask-weather:latest
+        name: flask-weather
+        resources: {}
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - mountPath: /python-docker/config.json
+          subPath: production-config.json
+          name: config-map
+      volumes:
+      - name: config-map
+        configMap:
+          name: flask-weather
