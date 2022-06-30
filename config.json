@@ -1,0 +1,7 @@
+{
+    "port": 8080,
+    "expireTime": "10",
+    "DBuser": "root",
+    "DBpass": "secret"
+
+}
